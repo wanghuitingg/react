@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="./babel.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script type="text/babel">
+        /**class组件（有状态组件）
+         * 通过class关键字定义 组件首字母大写
+         * 运用ES6类的语法
+         * 需要继承React.Component
+         * class组建可以定义状态，有一系列的钩子函数 
+         * class组件通过this.props获取引用组件传的参数
+         * */
+        class Com extends React.Component{
+            constructor(){
+                super()
+            }
+
+            render() {
+                return(
+                    <div>
+                        <p>lovecoding</p>
+                        <p>姓名：{this.props.name}</p>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Com name="nn" obj={{}}/>,
+            document.querySelector("#app")
+        )
+    </script>
+</body>
+
+</html>
