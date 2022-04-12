@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="./babel.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+
+    <script type="text/babel">
+        class Com extends React.Component{
+            constructor(){
+                super()
+                this.number = 1
+                // 需要在构造函数中定义state属性用来存储状态（state是一个对象）
+                // 可以类比为vue中的data属性
+                this.state={
+                    num : 2 
+                }
+            }
+
+            add(){
+                // alert('lovecoding...')
+                // this.number ++
+                // console.log(this.number);
+
+                // 通过setState 
+                this.setState({
+                    num:this.state.num +1
+                })
+            }
+            render() {
+                console.log(this.number);
+                return(
+                    <div>
+                        {
+                            // 给元素绑定事件 事件名需要采用小驼峰式，不能是纯小写	eg：onClick  onBlur
+                            // 如果事件处理函数里逻辑简单，可以写在标签上
+                        }
+                        <button onClick={()=>{
+                            console.log('hello');
+                        }}>点击</button>
+                        <p>number:{this.number}</p>
+                        {
+                            // 通过this.state.xxx 来获取state中的属性
+                        }
+                        <button onClick={this.add.bind(this)}>click</button>
+                        <p>num:{this.state.num}</p>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Com />,
+            document.querySelector("#app")
+        )
+    </script>
+</body>
+
+</html>

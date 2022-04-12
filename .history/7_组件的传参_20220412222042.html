@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="./babel.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+
+    <script type="text/babel">
+        /**
+         * ref表示引用
+         * 在父组件中引用子组件的时候可以通过给子组件定义ref属性来引用
+         * 在父组件需要调用子组件 
+        */
+
+        class Parent extends React.Component{
+            constructor(){
+                super()
+                this.addFun = this.addFun.bind(this)
+            }
+
+            addFun(){
+                // 修改子组件的count
+                // console.log(this.refs.childCom.state.count);
+                // 解构赋值
+                let {childCom} = this.refs
+                // 虽然可以实现修改子组件的state，但是不允许这样写！！
+                // childCom.setState({
+                //     count:childCom.state.count +1
+                // })
+
+                // 可以在父组件中调用子组件的方法去修改子组件的state
+                childCom.add()
+            }
+        
+            render() {
+                return(
+                    <div>
+                        <h1>父组件</h1>
+                        <button onClick={this.addFun}>点击后子组件count+1</button>
+                        <Child ref="childCom"/>
+                    </div>
+                )
+            }
+        }
+
+        class Child extends React.Component{
+            constructor(){
+                super()
+                this.state={
+                    count:0
+                }
+                this.add = this.add.bind(this)
+            }
+            add(){
+                this.setState({
+                    count: this.state.count +1
+                })
+            }
+            render(){
+                return(
+                    <div>
+                        <h3>子组件</h3>  
+                        <p>count:{this.state.count}</p>
+                        <button onClick={this.add}>点击count+1</button>  
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <Parent />,
+            document.querySelector("#app")
+        )
+    </script>
+
+</body>
+
+</html>

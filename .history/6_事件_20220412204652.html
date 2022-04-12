@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="./babel.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+
+    <script type="text/babel">
+        class Com extends React.Component{
+            constructor(){
+                super()
+                this.number = 1
+            }
+
+            fun(){
+                alert('lovecoding...')
+            }
+            render() {
+                return(
+                    <div>
+                        {
+                            // 给元素绑定事件 事件名需要采用小驼峰式，不能是纯小写	eg：onClick  onBlur
+                            // 如果事件处理函数里逻辑简单，可以写在标签上
+                        }
+                        <button onClick={()=>{
+                            console.log('hello');
+                        }}>点击</button>
+                        <p></p>
+                        <button onClick={this.fun}>click</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Com />,
+            document.querySelector("#app")
+        )
+    </script>
+</body>
+
+</html>
