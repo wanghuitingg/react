@@ -25,27 +25,36 @@
          * 在父组件需要调用子组件的方法时可以通过this.refs.xxx来找到对应的子组件
         */
         // 组件里的状态只能在组件内部直接修改！！！
+        // class Parent extends React.Component{
+        //     constructor(){
+        //         super()
+        //         this.addFun = this.addFun.bind(this)
+        //     }
+
+        //     addFun(){
+        //         // 修改子组件的count
+        //         // console.log(this.refs.childCom.state.count);
+        //         // 解构赋值
+        //         let {childCom,myInput} = this.refs
+        //         // 虽然可以实现修改子组件的state，但是不允许这样写！！
+        //         // childCom.setState({
+        //         //     count:childCom.state.count +1
+        //         // })
+
+        //         // 可以在父组件中调用子组件的方法去修改子组件的state
+        //         // input里的value是string类型，注意，需要number时转换
+        //         // childCom.add(myInput.value-0)
+        //         childCom.add(myInput.value*1)
+        //         // console.log(this.refs);
+        //     }
         class Parent extends React.Component{
             constructor(){
                 super()
                 this.addFun = this.addFun.bind(this)
             }
-
             addFun(){
-                // 修改子组件的count
-                // console.log(this.refs.childCom.state.count);
-                // 解构赋值
                 let {childCom,myInput} = this.refs
-                // 虽然可以实现修改子组件的state，但是不允许这样写！！
-                // childCom.setState({
-                //     count:childCom.state.count +1
-                // })
-
-                // 可以在父组件中调用子组件的方法去修改子组件的state
-                // input里的value是string类型，注意，需要number时转换
-                // childCom.add(myInput.value-0)
                 childCom.add(myInput.value*1)
-                // console.log(this.refs);
             }
             render() {
                 return(

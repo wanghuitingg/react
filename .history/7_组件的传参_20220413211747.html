@@ -47,6 +47,15 @@
                 childCom.add(myInput.value*1)
                 // console.log(this.refs);
             }
+        class Parent extends React.Component{
+            constructor(){
+                super()
+                this.addFun = this.addFun.bind(this)
+            }
+            addFun(){
+                let {childCom,myInput} = this.refs
+                childCom.add(myInput.value*1)
+            }
             render() {
                 return(
                     <div>
