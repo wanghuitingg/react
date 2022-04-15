@@ -30,7 +30,6 @@
                 super()
                 this.addFun = this.addFun.bind(this)
 
-                // 创建一个ref实例
                 this.input1 = React.createRef();
             }
 
@@ -49,9 +48,7 @@
                 // childCom.add(myInput.value-0)
                 childCom.add(myInput.value*1)
                 // console.log(this.refs);
-
-                // this.input1.current返回的是我们需要的dom元素
-                console.log(this.input1.current.value)
+                console.log(this.input1)
             }
             render() {
                 return(
@@ -60,7 +57,7 @@
                         <input ref="myInput" type="text" />
                         <button onClick={this.addFun}>点击后子组件count+1</button>
                         <Child ref="childCom"/>
-                        <input type="text" ref={this.input1}/>
+                        <input type="text" ref/>
                     </div>
                 )
             }
