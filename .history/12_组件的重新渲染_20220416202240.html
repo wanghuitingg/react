@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +9,6 @@
 
     </style>
 </head>
-
 <body>
     <div id="app"></div>
 
@@ -19,24 +17,13 @@
     <script src="./react-dom.development.js"></script>
 
     <script type="text/babel">
-
-        /**
-         * 引起组件重新渲染的方式
-         * *1. setState
-         * *2. props发生了变化
-         * *3. this.forceUpdate() 强制渲染（render方法会重新执行）
-         */
         class Parent extends React.Component{
             constructor(){
                 super()
                 this.state={
                     count:0
                 }
-
-                this.num =123
-
-                this.change = this.change.bind(this);
-                this.fun = this.fun.bind(this)
+                this.change = this.change.bind(this)
             }
 
             change(){
@@ -48,25 +35,13 @@
                     count:this.state.count +1
                 })
             }
-            fun(){
-                this.num++
-                // 强制渲染
-                this.forceUpdate()
-                console.log(this.num);
-            }
             render(){
-                console.log("父组件渲染了");
+                console.log("页面渲染了");
                 return(
                     <div>
                         <h1>父组件</h1>
                         <p>count:{this.state.count}</p>
                         <button onClick={this.change}>change</button>
-                        <p>num:{this.num}</p>
-                        <button onClick={this.fun}>change num</button>
-                        {
-                            // <Child number={this.state.count} />
-                        }
-                        
                     </div>
                 )
             }
@@ -76,16 +51,9 @@
             constructor(){
                 super()
             }
-            render(){
-                console.log("子组件渲染了");
-                return(
-                    <div>
-                        <h3>子组件</h3>
-                        <p>{this.props.number}</p>
-
-                    </div>
-                )
-            }
+            render(
+                
+            )
         }
 
         ReactDOM.render(
@@ -93,7 +61,6 @@
             document.getElementById("app")
         )
     </script>
-
+    
 </body>
-
 </html>

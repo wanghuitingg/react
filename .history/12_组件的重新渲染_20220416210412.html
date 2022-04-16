@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +9,6 @@
 
     </style>
 </head>
-
 <body>
     <div id="app"></div>
 
@@ -19,26 +17,21 @@
     <script src="./react-dom.development.js"></script>
 
     <script type="text/babel">
-
-        /**
-         * 引起组件重新渲染的方式
-         * *1. setState
-         * *2. props发生了变化
-         * *3. this.forceUpdate() 强制渲染（render方法会重新执行）
-         */
         class Parent extends React.Component{
             constructor(){
                 super()
                 this.state={
                     count:0
                 }
-
-                this.num =123
+                this.num=123;
 
                 this.change = this.change.bind(this);
-                this.fun = this.fun.bind(this)
+                this.Fun =
             }
 
+            Fun(){
+                this.num ++
+            }
             change(){
                 // 值可以修改，但是render不会重新执行->组件不会重新渲染
                 // this.state.count++
@@ -48,12 +41,6 @@
                     count:this.state.count +1
                 })
             }
-            fun(){
-                this.num++
-                // 强制渲染
-                this.forceUpdate()
-                console.log(this.num);
-            }
             render(){
                 console.log("父组件渲染了");
                 return(
@@ -62,11 +49,9 @@
                         <p>count:{this.state.count}</p>
                         <button onClick={this.change}>change</button>
                         <p>num:{this.num}</p>
-                        <button onClick={this.fun}>change num</button>
-                        {
-                            // <Child number={this.state.count} />
-                        }
-                        
+                        <button onClick={this.Fun}>changeFun</button>
+
+                        <Child number={this.state.count} />
                     </div>
                 )
             }
@@ -93,7 +78,6 @@
             document.getElementById("app")
         )
     </script>
-
+    
 </body>
-
 </html>

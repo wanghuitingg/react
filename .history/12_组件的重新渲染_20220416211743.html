@@ -19,13 +19,6 @@
     <script src="./react-dom.development.js"></script>
 
     <script type="text/babel">
-
-        /**
-         * 引起组件重新渲染的方式
-         * *1. setState
-         * *2. props发生了变化
-         * *3. this.forceUpdate() 强制渲染（render方法会重新执行）
-         */
         class Parent extends React.Component{
             constructor(){
                 super()
@@ -36,7 +29,7 @@
                 this.num =123
 
                 this.change = this.change.bind(this);
-                this.fun = this.fun.bind(this)
+                this.fun = tis
             }
 
             change(){
@@ -48,12 +41,7 @@
                     count:this.state.count +1
                 })
             }
-            fun(){
-                this.num++
-                // 强制渲染
-                this.forceUpdate()
-                console.log(this.num);
-            }
+            
             render(){
                 console.log("父组件渲染了");
                 return(
