@@ -232,7 +232,7 @@ React运用JSX语法，JSX不会真正的创建DOM元素，JSX只是解析模板
 
 ### 6. 组件的重新渲染
 
-​	1. setState
+​	1. setState  （可以让render()重新渲染）
 
 ​	2. props的改变
 

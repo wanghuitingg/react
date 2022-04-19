@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="./babel.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+
+    <script type="text/babel">
+        class Main extends React.Component{
+            constructor(){
+                super()
+                this.state={
+                    isShow:false
+                }
+
+                this.getCode = this.getCode.bind(this)
+            }
+            一、简介
+JavaScript是一种基于对象（object--based）的语言。
+
+JS是一个弱类型的语言
+html  布局、内容
+css    样式
+JS     交互
+JS 分为两种数据类型：基本数据类型（number，string，boolean，undefined，symbol（受保护的数据类型）），引用数据类型（数组，对象）。
+
+F12  控制台
+Elements
+左 html代码，右 css代码
+Console  控制台
+检查JS代码
+Sources
+打断点
+所有源代码
+Network
+整个网页加载的东西
+
+JS是一种（运行在客户端的交汇式）脚本语言，ES是一种标准。JS语言遵循了ES的标准。
+
+新语法通过Babel转化为ES5的语法再在浏览器上运行
+ 图片: https://uploader.shimo.im/f/mXUGmxg6qVgsH4Dt.png?sm_xform=image%2Fcrop%2Cx_0%2Cy_298%2Cw_1920%2Ch_736&accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJhY2Nlc3NfcmVzb3VyY2UiLCJleHAiOjE2NTAzNTM1NjQsImZpbGVHVUlEIjoieVdER1JIUDlXREt0OVdXUCIsImlhdCI6MTY1MDM1MzI2NCwidXNlcklkIjoxNTMyNTAyNH0.2n-eajq38TjUHXveQegUZOuqhUTKFrLlvI-_6TOxaPE
+
+两个环境：开发环境与生产环境
+
+
+
+二、语法
+let （定义变量）
+定义变量时，写var与不写var的区别？
+      不写var（未声明变量），即未出现新变量（将覆盖该元素的值），相当于给全局对象定义一个属性（相当于定义一个全局的window的属性），全局对象过多即window属性过多会污染全局对象；
+      写var，在当前作用域内写一个新的变量。
+//写var
+var a = 5 ;
+fuction foo(){
+  var a = 6;
+  console.log('1==' + a);
+}
+foo();//调用函数
+console.log('2==' + a);
+
+//输出结果：
+//1==6  2==5
+
+//不写var
+var a = 5 ;
+fuction foo(){
+  a = 6;
+  console.log('1==' + a);
+}
+foo();//调用函数
+console.log('2==' + a);
+
+//输出结果：
+//1==6  2==6
+
+1.1 let与var的区别（var的特点）
+let不属于顶层对象window（var属于）
+用let优点：不污染顶层对象window
+
+let不允许重复声明（var允许）
+var的重复声明及覆盖，let在重复声明时会报错
+用let优点：防止使用到同一个名字造成数据更改 
+            render(){
+                return(
+                    <div>
+                        <button onClick={this.getCode}>点击获取验证码</button>
+                        <Clock />
+                    </div>
+                )
+            }
+        }
+
+        class Clock extends React.Component{
+            constructor(){
+                super()
+            }
+            render(){
+                console.log("------------render------------");
+                return(
+                    <div>
+                        <p>n秒后重新获取验证码</p>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Main />,
+            document.getElementById("app")
+        )
+    </script>
+    
+</body>
+</html>
