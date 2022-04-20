@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="./babel.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+
+    <script type="text/babel">
+        // 主组件
+        class Main extends React.Component{
+            constructor(){
+                super()
+
+                this.state = {
+                    list:[
+                        {
+                            id:1,
+                            name:"吃饭"
+                        },
+                        {
+                            id:2,
+                            name:"睡觉"
+                        },{
+                            id:3,
+                            name:"敲代码"
+                        }
+                    ]
+                }
+            }
+            render(){
+                return(
+                    <div>
+                        <h1>To Do List</h1>
+                        { /* 引入Search组件 */}
+                        <Search />
+                        {/* 引入Add组件 */}
+                        <Add />
+                        {/* 引入List组件 */}
+                        <List list={this.state.list} />
+                    </div>
+                )
+            }
+        }
+
+        // 搜索组件
+        class Search extends React.Component{
+            constructor(){
+                super()
+            }
+            render(){
+                return(
+                    <div>
+                        搜索：
+                        <input type="text" />
+                    </div>
+                )
+            }
+        }
+
+        // 添加组件
+        class Add extends React.Component{
+            constructor(){
+                super()
+            }
+            render(){
+                return(
+                    <div>
+                        添加：
+                        <input type="text" />
+                        <button>add</button>
+                    </div>
+                )
+            }
+        }
+
+        // List组件
+        class List extends React.Component{
+            constructor(){
+                super()
+            }
+            render(){
+                // this.props接收父组件爱您
+
+                // console.log(this.props.list);
+                let { list } = this.props
+                return(
+                    <ul>
+                        {
+                            // 列表渲染
+                            list.map(obj =>{
+                                return(
+                                    <li key={obj.id}>
+                                        <input type="checkbox" />
+                                        <span>{obj.name}</span>
+                                        <button>delete</button>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                )
+            }
+        }
+
+        ReactDOM.render(<Main/>,document.querySelector("#app"))
+    </script>
+
+</body>
+
+</html>

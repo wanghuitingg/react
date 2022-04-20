@@ -21,6 +21,7 @@ React运用JSX语法，JSX不会真正的创建DOM元素，JSX只是解析模板
 
   - class：要写为  `className`
   - for属性：要写为  `htmlFor`
+  - checked（复选框勾选）：要写为`defaultChecked`
 
 - 必须有唯一父元素
 
@@ -284,12 +285,15 @@ tips：基本数据类型可以通过setState方法修改，引用数据类型�
 
 ### 1.React中每个class组件都有生命周期（钩子函数）：
 
-- `render()` ：是class组件中唯一必须实现的方法；
-- `constructor(props)` ：通过给`this.state`赋值对象来初始化内部state，为事件处理函数绑定实例；
-- `componentDidMount()` ：会在组件挂载后（插入DOM树中）立即调用；
-- `componentDidUpdate(prevProps,prevState,snapshot)` ：会在更新后会被立即调用，首次渲染不会执行此方法；
-- `componentWillUnmount()` ：会在组件卸载及销毁之前直接调用；
-- `static getDerivedStateFromProps()` ：会在调用render方法前调用，并且在初始挂载及后续更新时都会被调用。他应该返回一个对象来更新state，如果返回null则不更新任何内容；
+(只有class里有生命周期能使用钩子函数)
+
+- **`render()` ：是class组件中唯一必须实现的方法；**
+- **`constructor(props)` ：通过给`this.state`赋值对象来初始化内部state，为事件处理函数绑定实例；**
+- **`componentDidMount()` ：会在组件挂载后（插入DOM树中）立即调用；**
+- **`componentDidUpdate(prevProps,prevState,snapshot)` ：会在更新后会被立即调用，首次渲染不会执行此方法；**
+- `shouldComponentUpdate(nextProps,nextState)` ：询问组件是否更新（boolean）
+- **`componentWillUnmount()` ：会在组件卸载及销毁之前直接调用；**
+- `static getDerivedStateFromProps(nextProps,nextState)` ：会在每次调用render方法前调用，并且在初始挂载及后续更新时都会被调用。他应该返回一个对象来更新state，如果返回null则不更新任何内容；
 - `getSnapshotBeforeUpdate()` ：在最近一次渲染输出（提交到DOM节点）之前调用。它使得组件能在发生更改之前从DOM中捕获一些信息（例如，滚动位置）。此生命周期的任何返回值将作为参数传递给`componentDidUpdate()`。
 
 ![image-20220416221857677](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220416221857677.png)
