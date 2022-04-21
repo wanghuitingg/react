@@ -248,7 +248,7 @@ React运用JSX语法，JSX不会真正的创建DOM元素，JSX只是解析模板
 -  使用JSX语法时，需要传入一个函数作为事件的处理函数而不能是一个字符串
 -  需要注意自定义事件中的this指向问题，通过bind()方法修改this
   - 方法一：写在构造函数中（推荐）![image-20220412212321697](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220412212321697.png)
-  - 方法二：写在html里（不推荐）![image-20220412211951333](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220412211951333.png)
+  - 方法二：写在html里（不推荐）（需要传参的话，must）![image-20220412211951333](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220412211951333.png)
 -  react中阻止浏览器的默认行为需要使用`preventDefault()`方法，**不能**使用return false
 
 ### 2. state状态

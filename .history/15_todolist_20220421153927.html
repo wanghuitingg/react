@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 被选中时显示css */
+        .active {
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="./babel.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+
+    <script type="text/babel">
+        // 主组件
+        class Main extends React.Component{
+            constructor(){
+                super()
+
+                this.state = {
+                    list:[
+                        {
+                            id:1,
+                            name:"吃饭",
+                            // 判断是否为true，为true时添加.active属性
+                            isActive:false
+                        },
+                        {
+                            id:2,
+                            name:"睡觉",
+                            isActive:false
+                        },{
+                            id:3,
+                            name:"敲代码",
+                            isActive:true
+                        }
+                    ]
+                }
+
+                // 绑定this
+                this.add = this.add.bind(this)
+            }
+            // 向list数组里追加（此方法可以传输子组件使用）
+            add(){
+                // 定义一个全新的数组
+                let list = [...this.state.list];
+                list.push({
+                    id:new Date().getTime(), //getTime()获取从1970.1.1至今的毫秒数，不会重复
+                    name:data,
+                    isActive:false
+                })
+                this.setState({
+                    // list : list
+                    list
+                })
+            }
+            render(){
+                return(
+                    <div>
+                        <h1>To Do List</h1>
+                        { /* 引入Search组件 */}
+                        <Search />
+                        {/* 引入Add组件 */}
+                        <Add addFun = {this.add}/>
+                        {/* 引入List组件 */}
+                        <List list={this.state.list} />
+                    </div>
+                )
+            }
+        }
+
+        // 搜索组件
+        class Search extends React.Component{
+            constructor(){
+                super()
+            }
+            render(){
+                return(
+                    <div>
+                        搜索：
+                        <input type="text" />
+                    </div>
+                )
+            }
+        }
+
+        // 添加组件
+        class Add extends React.Component{
+            constructor(){
+                super()
+
+                this.addHandler = this.addHandler.bind(this)
+                // 创建一个ref实例
+                this.myInput = React.createRef()
+            }
+
+            // 添加功能
+            // 获取到input里的value  并且将value里的值间接的追加到list数组里
+            addHandler(){
+                // 1.获取input中的value
+                // this.myInput.current -> input
+                console.log(this.myInput.current.value);
+                // 2.调用父组件中的add方法并将value里的值传过去
+                 
+            }
+            render(){
+                return(
+                    <div>
+                        添加：
+                        <input type="text" ref={this.myInput}/>
+                        <button onClick={this.addHandler}>add</button>
+                    </div>
+                )
+            }
+        }
+
+        // List组件
+        class List extends React.Component{
+            constructor(){
+                super()
+            }
+            render(){
+                // this.props接收父组件传过来的所有属性，，是对象类型的
+                // ｛ list ｝通过解构赋值的方式获取this.props.list
+                // console.log(this.props.list);
+                let { list } = this.props
+                return(
+                    <ul>
+                        {
+                            // 列表渲染
+                            list.map(obj =>{
+                                return(
+                                    // class -> className
+                                    <li key={obj.id} className={obj.isActive ? 'active' : ''}>
+                                        {/* checkd -> defaultChecked */}
+                                        <input type="checkbox" defaultChecked={obj.isActive}/>
+                                        <span>{obj.name}</span>
+                                        <button>delete</button>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                )
+            }
+        }
+
+        ReactDOM.render(<Main/>,document.querySelector("#app"))
+    </script>
+
+</body>
+
+</html>
