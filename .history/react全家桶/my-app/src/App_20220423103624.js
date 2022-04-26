@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Link, Switch } from 'react-router-dom'
-// import { withRouter } from 'react-router-dom';
+/
 
 // 导入对应组件
 import Home from './views/Home'
