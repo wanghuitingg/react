@@ -22,9 +22,8 @@ function AddActionCreator(data) {
     }
 }
 function ReduceActionCreator(data) {
-    return {
-        type: REDUCE_NUM,
-        data
+    return{
+        type
     }
 }
 
@@ -39,10 +38,6 @@ function reducer(preState = state, action) {
             return Object.assign({}, preState, {
                 number: preState.number + 1
             })
-        case REDUCE_NUM:
-            return Object.assign({},preState,{
-                number: preState.number - action.data
-            })
 
         default:
             return preState
@@ -55,6 +50,5 @@ const store = createStore(reducer)
 // 导出store和所有action creator
 export {
     store,
-    AddActionCreator,
-    ReduceActionCreator
+    AddActionCreator
 }

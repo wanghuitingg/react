@@ -10,31 +10,23 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        reduce:(value)=>{
-            dispatch(ReduceActionCreator(value))
+        reduce:()=>{
+            dispatch(ReduceActionCreator())
         }
     };
 }
 
 class Num extends Component {
     constructor(){
-        super()
-
-        this.reduceHandler = this.reduceHandler.bind(this)
-        this.myInput = createRef();
-    }
-    reduceHandler(){
-        let { value } = this.myInput.current
-        this.props.reduce(value)
+        
     }
     render() {
         return (
             <div>
                 <h1>计数器2</h1>
                 <p>count:{this.props.count}</p>
-                <input type="text" ref={this.myInput} />
+                <input type="text" />
                 <button onClick={this.props.reduce}>reduce</button>
-                <button onClick={this.reduceHandler}>减减</button>
             </div>
         );
     }

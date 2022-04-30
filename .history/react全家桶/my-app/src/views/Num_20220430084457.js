@@ -10,8 +10,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        reduce:(value)=>{
-            dispatch(ReduceActionCreator(value))
+        reduce:()=>{
+            dispatch(ReduceActionCreator())
         }
     };
 }
@@ -24,8 +24,7 @@ class Num extends Component {
         this.myInput = createRef();
     }
     reduceHandler(){
-        let { value } = this.myInput.current
-        this.props.reduce(value)
+        let { value } = thsi
     }
     render() {
         return (

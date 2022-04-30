@@ -41,7 +41,7 @@ function reducer(preState = state, action) {
             })
         case REDUCE_NUM:
             return Object.assign({},preState,{
-                number: preState.number - action.data
+                coun
             })
 
         default:

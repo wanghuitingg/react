@@ -7,7 +7,6 @@ let state = {
 
 // 定义action type
 const ADD_NUM = 'ADD_NUM'
-const REDUCE_NUM = 'REDUCE_NUM'
 
 // 定义action creator
 // action creator 是一个方法，返回一个action（对象）
@@ -21,12 +20,7 @@ function AddActionCreator(data) {
         data
     }
 }
-function ReduceActionCreator(data) {
-    return {
-        type: REDUCE_NUM,
-        data
-    }
-}
+fun
 
 // reducer 纯函数 负责更新state
 // 接收一个旧的state和action
@@ -38,10 +32,6 @@ function reducer(preState = state, action) {
             // Object.assign({})  对对象进行合并，将之后的对象追加到第一个对象里
             return Object.assign({}, preState, {
                 number: preState.number + 1
-            })
-        case REDUCE_NUM:
-            return Object.assign({},preState,{
-                number: preState.number - action.data
             })
 
         default:
@@ -55,6 +45,5 @@ const store = createStore(reducer)
 // 导出store和所有action creator
 export {
     store,
-    AddActionCreator,
-    ReduceActionCreator
+    AddActionCreator
 }

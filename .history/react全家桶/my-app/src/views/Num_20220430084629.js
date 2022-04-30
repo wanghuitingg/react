@@ -10,8 +10,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        reduce:(value)=>{
-            dispatch(ReduceActionCreator(value))
+        reduce:(val)=>{
+            dispatch(ReduceActionCreator())
         }
     };
 }
