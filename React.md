@@ -67,6 +67,16 @@ React运用JSX语法，JSX不会真正的创建DOM元素，JSX只是解析模板
 
 	2. 
 
+### 5.vscode 扩展
+
+![image-20220501163411955](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220501163411955.png)
+
+快捷键：
+
+- rcc：创建class组件![image-20220501163727985](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220501163727985.png)
+- rrdc：redux 创建组件（包含`mapStateToProps`，`mapDispatchToProps`）![image-20220501163940213](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220501163940213.png)
+- rsf：创建函数组件![image-20220501163812415](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220501163812415.png)
+
 
 
 ## 二. 组件&props
@@ -281,7 +291,15 @@ tips：基本数据类型可以通过setState方法修改，引用数据类型�
 
 
 
-## 五. 生命周期
+## 五. React脚手架
+
+![image-20220501125010464](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220501125010464.png)
+
+- 创建项目：`npx creat-react-app `<u><react-app></u>
+
+
+
+## 六. 生命周期
 
 ### 1.React中每个class组件都有生命周期（钩子函数）：
 
@@ -302,7 +320,7 @@ tips：基本数据类型可以通过setState方法修改，引用数据类型�
 
 
 
-## 六. React全家桶
+## 七. React全家桶
 
 ### 1. 严格模式
 
@@ -435,7 +453,7 @@ tips：基本数据类型可以通过setState方法修改，引用数据类型�
 
 
 
-## 七. Redux
+## 八. Redux
 
 ### 1. 适用场景
 
@@ -481,7 +499,7 @@ tips：基本数据类型可以通过setState方法修改，引用数据类型�
 
 
 
-
+## 九. hook
 
 
 
