@@ -501,5 +501,27 @@ tips：基本数据类型可以通过setState方法修改，引用数据类型�
 
 ## 九. hook
 
+### 1. useState
+
+- useState是react自带的一个hook函数，它的作用就是用来声明状态变量
+- `useState()`函数
+  - 接收的参数是我们状态的初始值
+  - 返回一个数组，数组的第0项是当前的状态值，第一项是可以改变状态值得方法函数
+  - ![image-20220502220350458](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220502220350458.png)
+
+
+
+### 2. useEffect
+
+- 在函数组件里面使用class的生命周期函数，还是所有函数的合体，useEffect就是一个Effect Hook，给函数组件增加了操作副作用的能力。
+- 它是class组件中componentDidMount，componentDidUpdate，componentWillUnmount的集合API。
+- `useEffect(callback,array)`    （同一个组件里可以重复调用多次）
+  - 通过array来控制当前useEffect方法的执行
+  - 默认不传array 会在componentDidMount，componentDidUpdate时执行
+  - [] 会在componentDidMount时执行
+  - 第二个参数([]) 里传了某个属性 就代表只有这个属性发生变化才会执行这个办法
+  - return后在卸载前执行componentWillUnmount
+  - ![image-20220502225549803](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220502225549803.png)
+
 
 
