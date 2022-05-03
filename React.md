@@ -501,7 +501,15 @@ tips：基本数据类型可以通过setState方法修改，引用数据类型�
 
 ## 九. hook
 
-### 1. useState
+### 1. 介绍
+
+- 函数组件没有实例，没有生命周期函数，只有类组件才有
+- Hooks是React16.8新增的特性，可以在不编写class的情况下使用state以及其他React属性
+- 凡是use开头的React API都是hooks
+
+
+
+### 2. useState
 
 - useState是react自带的一个hook函数，它的作用就是用来声明状态变量
 - `useState()`函数
@@ -511,7 +519,7 @@ tips：基本数据类型可以通过setState方法修改，引用数据类型�
 
 
 
-### 2. useEffect
+### 3. useEffect
 
 - 在函数组件里面使用class的生命周期函数，还是所有函数的合体，useEffect就是一个Effect Hook，给函数组件增加了操作副作用的能力。
 - 它是class组件中componentDidMount，componentDidUpdate，componentWillUnmount的集合API。
