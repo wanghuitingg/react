@@ -533,3 +533,26 @@ tips：基本数据类型可以通过setState方法修改，引用数据类型�
 
 
 
+### 4. useRef
+
+- 类组件、React元素用`React.createRef`，函数组件使用`useRef`
+- `useRef`返回一个可变的ref对象，其current属性被初始化为传入的参数，useRef返回的ref对象在组件的整个生命周期函数内保持不变，也就是说每次重新渲染函数组件时，返回的ref对象都是同一个
+- ![image-20220504195015925](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220504195015925.png)
+
+
+
+### 5. useReducer
+
+- `useReducer`和redux中的`reducer`很像，用来管理状态
+- `useReducer()`接收一个reducer函数和一个初始的state，返回state和dispatch函数
+
+- ![image-20220504195837537](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220504195837537.png)
+
+
+
+### 6. useContext
+
+- `useContext` 解决多组件传值的问题，实现共享
+- `useContext(myContext)` 只是让你能够读取context的值以及订阅context的变化，仍需要在上层组件树中使用`<myContext.Provider>`来为下层组件提供context
+- ![image-20220504200525704](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220504200525704.png)![image-20220504200727250](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220504200727250.png)![image-20220504200752934](C:\Users\86137\AppData\Roaming\Typora\typora-user-images\image-20220504200752934.png)
+
